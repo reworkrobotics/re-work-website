@@ -1,0 +1,239 @@
+/* Google Font - A modern, clean font */
+
+/* =================================================================== */
+/*               NEW, UPGRADED "ENGINE" PRELOADER STYLES               */
+/* =================================================================== */
+#preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #121212;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.75s ease;
+}
+
+#preloader.preloader-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* This is the container for our engine effect */
+.loader-engine {
+    position: relative; /* This is crucial for positioning the gears inside */
+    width: 150px;
+    height: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Base style for all gears */
+.loader-engine .fa-gear {
+    position: absolute; /* Allows us to stack the gears */
+    color: var(--primary-color);
+    opacity: 0.8;
+}
+
+/* Individual gear styling and animation */
+/* This rule is updated to style the <img> tag instead of the <i> icon */
+.gear-large {
+    width: 120px; /* Controls the size of your logo. Adjust as needed. */
+    height: auto; /* Keeps the image from stretching */
+    animation: spin 2s linear infinite; /* The animation is inherited perfectly! */
+}
+
+.gear-medium {
+    font-size: 3rem; /* 48px */
+    top: 0px;
+    right: 0px;
+    color: var(--secondary-color);
+    animation: spin-reverse 1.5s linear infinite; /* Faster, counter-rotation */
+}
+
+.gear-small {
+    font-size: 2rem; /* 32px */
+    bottom: 10px;
+    left: 5px;
+    color: var(--secondary-color);
+    animation: spin-reverse 1s linear infinite; /* Fastest, counter-rotation */
+}
+
+
+/* Defines the CLOCKWISE rotation animation */
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+/* Defines the COUNTER-CLOCKWISE rotation animation */
+@keyframes spin-reverse {
+    from { transform: rotate(360deg); }
+    to { transform: rotate(0deg); }
+}
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+
+:root {
+    --primary-color: #A06CD5; /* A nice purple */
+    --secondary-color: #6247AA; /* A deeper purple */
+    --dark-bg: #121212;
+    --light-text: #f8f9fa;
+    --dark-text: #212529;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--light-text);
+}
+
+.navbar {
+    background-color: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.navbar-brand {
+    font-weight: 700;
+    color: var(--primary-color) !important;
+}
+
+.nav-link {
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover, .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+/* --- UPDATED HERO SECTION STYLE --- */
+/* --- THIS IS THE NEW CODE --- */
+.hero-section {
+    height: 100vh;
+    background: linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.8)), url('banner.png');
+    /* Change 'cover' to a percentage. Start with this and experiment. */
+    background-size: 90%; 
+    background-position: center center;
+    background-attachment: fixed;
+    /* IMPORTANT: Add this next line to prevent the image from tiling */
+    background-repeat: no-repeat;
+}
+/* We removed the H1 and P from the HTML, so this is no longer needed */
+
+
+section {
+    padding: 80px 0;
+}
+
+.bg-dark {
+    background-color: #1a1a1a !important;
+}
+
+.section-title {
+    font-weight: 700;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+#support ul {
+    list-style: none;
+    padding-left: 1.5%;
+}
+/* #support ul li::before {
+    content: "✓";
+    color: var(--primary-color);
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+    margin-left: -1em;
+} */
+
+/* --- SPONSOR CARD STYLES --- */
+.sponsor-grid {
+    display: flex;
+    flex-wrap: wrap; /* This is the key for responsiveness */
+    justify-content: center;
+    gap: 2rem; /* The space between cards */
+}
+
+.sponsor-card {
+    background-color: #2a2a2a;
+    border: 2px solid var(--secondary-color);
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    flex: 1 1 300px; /* Flexbox magic: grow, shrink, with a base width of 300px */
+    max-width: 350px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.sponsor-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(160, 108, 213, 0.2);
+}
+
+.sponsor-card h3 {
+    font-weight: 600;
+    color: var(--light-text);
+    margin-bottom: 0.5rem;
+}
+
+.sponsor-card span {
+    font-weight: 600;
+    padding: 0.25rem 0.75rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+}
+
+/* Color coding for tiers */
+.tier-platinum { background-color: #e5e4e2; color: var(--dark-text); }
+.tier-gold { background-color: #ffd700; color: var(--dark-text); }
+.tier-silver { background-color: #c0c0c0; color: var(--dark-text); }
+.tier-bronze { background-color: #cd7f32; color: var(--light-text); }
+
+
+.map-container {
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid var(--secondary-color);
+}
+
+#sponsor-us a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#sponsor-us a:hover {
+    text-decoration: underline;
+}
+#download-package {
+    /* This makes it alternate from the dark section before it */
+    background-color: var(--dark-bg); 
+}
+
+.btn-download {
+    display: inline-block;
+    padding: 1rem 2.5rem; /* Makes the button large and clickable */
+    border: 2px solid var(--primary-color); /* Purple outline */
+    color: var(--primary-color); /* Purple text */
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px; /* Creates the pill shape */
+    transition: all 0.3s ease; /* Makes the hover effect smooth */
+}
+
+/* This is what happens when the user hovers their mouse over the button */
+.btn-download:hover {
+    background-color: var(--primary-color); /* Fills the button with purple */
+    color: var(--light-text); /* Makes the text light to contrast */
+    transform: translateY(-5px); /* Lifts the button slightly */
+    box-shadow: 0 8px 15px rgba(160, 108, 213, 0.2); /* Adds a subtle glow */
+}
