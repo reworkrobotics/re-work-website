@@ -84,12 +84,14 @@
     --dark-bg: #121212;
     --light-text: #f8f9fa;
     --dark-text: #212529;
+    filter: blur(0.2px);
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--dark-bg);
     color: var(--light-text);
+    
 }
 
 .navbar {
@@ -115,11 +117,14 @@ body {
 /* --- THIS IS THE NEW CODE --- */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(rgba(18, 18, 18, 0.01), rgba(18, 18, 18, 0.8)), url('banner.png');
+    background: linear-gradient(rgba(18, 18, 18, 0.2), rgba(18, 18, 18, 0.4)), url('banner.png');
     /* Change 'cover' to a percentage. Start with this and experiment. */
     background-size: 90%; 
     background-position: center center;
     background-attachment: fixed;
+    filter: blur(0px);
+    transition: filter 0.2s ease-out;
+    transform: scale(1.2);
     /* IMPORTANT: Add this next line to prevent the image from tiling */
     background-repeat: no-repeat;
 }
@@ -237,3 +242,4 @@ section {
     transform: translateY(-5px); /* Lifts the button slightly */
     box-shadow: 0 8px 15px rgba(160, 108, 213, 0.2); /* Adds a subtle glow */
 }
+

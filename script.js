@@ -58,6 +58,11 @@ window.addEventListener('scroll', ()=> {
     sections.forEach( section => {
         const sectionTop = section.offsetTop;
         const sectionHeight = section.clientHeight;
+        const scrollTop = window.scrollY ; // how far user scrolled
+        const maxScroll = document.body.scrollHeight - window.innerHeight - 500;
+        const blurAmount = Math.min((scrollTop / maxScroll) * 70, 500); // max blur 10px
+
+        document.querySelector('.hero-section').style.filter = `blur(${blurAmount}px)`;
         if(pageYOffset >= (sectionTop - sectionHeight / 3)){
             current = section.getAttribute('id');
         }
