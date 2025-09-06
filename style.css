@@ -115,7 +115,7 @@ body {
 /* --- THIS IS THE NEW CODE --- */
 .hero-section {
     height: 100vh;
-    background: linear-gradient(rgba(18, 18, 18, 0.6), rgba(18, 18, 18, 0.8)), url('banner.png');
+    background: linear-gradient(rgba(18, 18, 18, 0.01), rgba(18, 18, 18, 0.8)), url('banner.png');
     /* Change 'cover' to a percentage. Start with this and experiment. */
     background-size: 90%; 
     background-position: center center;
