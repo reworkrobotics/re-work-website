@@ -1,7 +1,8 @@
 /* Google Font - A modern, clean font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
 /* =================================================================== */
-/*               NEW, UPGRADED "ENGINE" PRELOADER STYLES               */
+/* PRELOADER STYLES                           */
 /* =================================================================== */
 #preloader {
     position: fixed;
@@ -22,9 +23,8 @@
     pointer-events: none;
 }
 
-/* This is the container for our engine effect */
 .loader-engine {
-    position: relative; /* This is crucial for positioning the gears inside */
+    position: relative;
     width: 150px;
     height: 150px;
     display: flex;
@@ -34,73 +34,73 @@
 
 /* Base style for all gears */
 .loader-engine .fa-gear {
-    position: absolute; /* Allows us to stack the gears */
+    position: absolute;
     color: var(--primary-color);
     opacity: 0.8;
+    will-change: transform;
 }
 
-/* Individual gear styling and animation */
-/* This rule is updated to style the <img> tag instead of the <i> icon */
 .gear-large {
-    width: 60px; /* Controls the size of your logo. Adjust as needed. */
-    height: auto; /* Keeps the image from stretching */
-    animation: spin 2s linear infinite; /* The animation is inherited perfectly! */
+    width: 60px;
+    height: auto;
+    animation: spin 2s linear infinite;
+    will-change: transform;
 }
 
 .gear-medium {
-    font-size: 3rem; /* 48px */
+    font-size: 3rem;
     top: 0px;
     right: 0px;
     color: var(--secondary-color);
-    animation: spin-reverse 1.5s linear infinite; /* Faster, counter-rotation */
+    animation: spin-reverse 1.5s linear infinite;
 }
 
 .gear-small {
-    font-size: 2rem; /* 32px */
+    font-size: 2rem;
     bottom: 10px;
     left: 5px;
     color: var(--secondary-color);
-    animation: spin-reverse 1s linear infinite; /* Fastest, counter-rotation */
+    animation: spin-reverse 1s linear infinite;
 }
 
-
-/* Defines the CLOCKWISE rotation animation */
 @keyframes spin {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
 }
 
-/* Defines the COUNTER-CLOCKWISE rotation animation */
 @keyframes spin-reverse {
     from { transform: rotate(360deg); }
     to { transform: rotate(0deg); }
 }
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
 
+/* =================================================================== */
+/* GENERAL STYLES                            */
+/* =================================================================== */
 
 :root {
-    --primary-color: #A06CD5; /* A nice purple */
-    --secondary-color: #6247AA; /* A deeper purple */
+    --primary-color: #A06CD5;
+    --secondary-color: #6247AA;
     --dark-bg: #121212;
     --light-text: #f8f9fa;
     --dark-text: #212529;
-    filter: blur(0.2px);
+    /* REMOVED: filter: blur(0.2px); This was a major performance issue. */
 }
 
 body {
     font-family: 'Poppins', sans-serif;
     background-color: var(--dark-bg);
     color: var(--light-text);
-    overflow-x: hidden
+    overflow-x: hidden;
 }
 
 .navbar {
-        background-color: rgba(18, 18, 18, 0.95); 
+    background-color: rgba(18, 18, 18, 0.95); 
 }
+
 @supports (backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px)) {
     .navbar {
         background-color: rgba(18, 18, 18, 0.8);
-        -webkit-backdrop-filter: blur(10px); /* For Safari compatibility */
+        -webkit-backdrop-filter: blur(10px);
         backdrop-filter: blur(10px);
     }
 }
@@ -119,23 +119,17 @@ body {
     color: var(--primary-color) !important;
 }
 
-/* --- UPDATED HERO SECTION STYLE --- */
-/* --- THIS IS THE NEW CODE --- */
 .hero-section {
     height: 100vh;
     background: linear-gradient(rgba(18, 18, 18, 0.2), rgba(18, 18, 18, 0.4)), url('banner.png');
-    /* Change 'cover' to a percentage. Start with this and experiment. */
     background-size: 90%; 
     background-position: center center;
+    /* This is the default, high-performance parallax style for Chrome */
     background-attachment: fixed;
     filter: blur(0px);
     transition: filter 0.2s ease-out;
-    transform: scale(1.2);
-    /* IMPORTANT: Add this next line to prevent the image from tiling */
     background-repeat: no-repeat;
 }
-/* We removed the H1 and P from the HTML, so this is no longer needed */
-
 
 section {
     padding: 80px 0;
@@ -157,21 +151,12 @@ section {
     list-style: none;
     padding-left: 1.5%;
 }
-/* #support ul li::before {
-    content: "✓";
-    color: var(--primary-color);
-    font-weight: bold;
-    display: inline-block;
-    width: 1em;
-    margin-left: -1em;
-} */
 
-/* --- SPONSOR CARD STYLES --- */
 .sponsor-grid {
     display: flex;
-    flex-wrap: wrap; /* This is the key for responsiveness */
+    flex-wrap: wrap;
     justify-content: center;
-    gap: 2rem; /* The space between cards */
+    gap: 2rem;
 }
 
 .sponsor-card {
@@ -180,7 +165,7 @@ section {
     border-radius: 10px;
     padding: 2rem;
     text-align: center;
-    flex: 1 1 300px; /* Flexbox magic: grow, shrink, with a base width of 300px */
+    flex: 1 1 300px;
     max-width: 350px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -203,12 +188,10 @@ section {
     font-size: 0.9rem;
 }
 
-/* Color coding for tiers */
 .tier-platinum { background-color: #e5e4e2; color: var(--dark-text); }
 .tier-gold { background-color: #ffd700; color: var(--dark-text); }
 .tier-silver { background-color: #c0c0c0; color: var(--dark-text); }
 .tier-bronze { background-color: #cd7f32; color: var(--light-text); }
-
 
 .map-container {
     border-radius: 15px;
@@ -226,28 +209,36 @@ section {
     text-decoration: underline;
     color: var(--light-text);
 }
+
 #download-package {
-    /* This makes it alternate from the dark section before it */
     background-color: var(--dark-bg); 
 }
 
 .btn-download {
     display: inline-block;
-    padding: 1rem 2.5rem; /* Makes the button large and clickable */
-    border: 2px solid var(--primary-color); /* Purple outline */
-    color: var(--primary-color); /* Purple text */
+    padding: 1rem 2.5rem;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
     text-decoration: none;
     font-weight: 600;
     font-size: 1.1rem;
-    border-radius: 50px; /* Creates the pill shape */
-    transition: all 0.3s ease; /* Makes the hover effect smooth */
+    border-radius: 50px;
+    transition: all 0.3s ease;
 }
 
-/* This is what happens when the user hovers their mouse over the button */
 .btn-download:hover {
-    background-color: var(--primary-color); /* Fills the button with purple */
-    color: var(--light-text); /* Makes the text light to contrast */
-    transform: translateY(-5px); /* Lifts the button slightly */
-    box-shadow: 0 8px 15px rgba(160, 108, 213, 0.2); /* Adds a subtle glow */
+    background-color: var(--primary-color);
+    color: var(--light-text);
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(160, 108, 213, 0.2);
 }
 
+/* =================================================================== */
+/* BROWSER-SPECIFIC OVERRIDE RULE                     */
+/* =================================================================== */
+
+/* This rule will ONLY apply if the 'not-chrome' class is present (i.e., on Firefox, Safari, etc.) */
+/* It switches to a safer background style that does not use parallax. */
+html.not-chrome .hero-section {
+    background-attachment: scroll;
+}
